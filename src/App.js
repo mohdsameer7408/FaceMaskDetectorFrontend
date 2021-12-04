@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import styled from "styled-components";
+
+import Header from "./app/components/Header";
+import HomeScreen from "./app/screens/HomeScreen";
+import Footer from "./app/components/Footer";
 
 function App() {
+  const [isVideoOn, setIsVideoOn] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Header />
+      <HomeScreen isVideoOn={isVideoOn} />
+      <Footer isVideoOn={isVideoOn} setIsVideoOn={setIsVideoOn} />
+    </AppContainer>
   );
 }
 
 export default App;
+
+const AppContainer = styled.main``;
